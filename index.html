@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignment 4 - Forms and Validation</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            color: #212529;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #173b67, #3478b8);
+            color: white;
+            padding: 55px 20px;
+            border-radius: 0 0 24px 24px;
+        }
+
+        .task-card {
+            background: white;
+            border: 1px solid #e2e7ed;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+            scroll-margin-top: 85px;
+        }
+
+        .task-number {
+            color: #3478b8;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .task-card h2 {
+            margin: 8px 0 12px;
+        }
+
+        .basic-form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .basic-form input,
+        .basic-form textarea {
+            width: 100%;
+            max-width: 550px;
+            padding: 10px;
+            border: 1px solid #adb5bd;
+            border-radius: 6px;
+        }
+
+        .basic-form .field {
+            margin-bottom: 18px;
+        }
+
+        .basic-form button {
+            padding: 10px 22px;
+            border: none;
+            border-radius: 6px;
+            background: #173b67;
+            color: white;
+        }
+
+        .section-note {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: #173b67;
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold">Forms and Validation</h1>
+            <p class="lead mt-3">
+                Web Technologies - Assignment #4
+            </p>
+            <p class="mb-0">HTML5, Bootstrap 5 and JavaScript</p>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">Assignment 4</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation"
+                aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavigation">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#task0">Task 0</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#task1">Task 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#task2">Task 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#task3">Task 3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#task4">Task 4</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="home" class="container py-5">
+
+        <!-- TASK 0 -->
+        <section id="task0" class="task-card">
+            <div class="task-number">Part 1 - Task 0</div>
+            <h2>Simple Contact Form</h2>
+            <p class="section-note">
+                A basic HTML form with labels, text input, email input,
+                textarea and a submit button.
+            </p>
+
+            <form class="basic-form" action="#" method="get">
+                <div class="field">
+                    <label for="t0Name">Name:</label>
+                    <input type="text" id="t0Name" name="name" placeholder="Enter your name">
+                </div>
+
+                <div class="field">
+                    <label for="t0Email">Email:</label>
+                    <input type="email" id="t0Email" name="email" placeholder="Enter your email">
+                </div>
+
+                <div class="field">
+                    <label for="t0Message">Message:</label>
+                    <textarea id="t0Message" name="message" rows="4" placeholder="Write your message"></textarea>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section id="task1" class="task-card">
+            <div class="task-number">Part 1 - Task 1</div>
+            <h2>Contact Form with HTML5 Validation</h2>
+            <p class="section-note">
+                Required fields, email format validation and length restrictions.
+                Try submitting an empty form or entering an invalid email.
+            </p>
+
+            <form class="basic-form" action="#" method="get">
+                <div class="field">
+                    <label for="t1Name">Name:</label>
+                    <input type="text" id="t1Name" name="name" required minlength="2" maxlength="50"
+                        placeholder="Enter at least 2 characters">
+                </div>
+
+                <div class="field">
+                    <label for="t1Email">Email:</label>
+                    <input type="email" id="t1Email" name="email" required maxlength="100"
+                        placeholder="name@example.com">
+                </div>
+
+                <div class="field">
+                    <label for="t1Message">Message:</label>
+                    <textarea id="t1Message" name="message" rows="4" required minlength="10" maxlength="500"
+                        placeholder="Enter at least 10 characters"></textarea>
+                </div>
+
+                <button type="submit">Submit</button>
+                <button type="reset" style="background:#6c757d">Reset</button>
+            </form>
+        </section>
+
+        <section id="task2" class="task-card">
+            <div class="task-number">Part 2 - Task 2</div>
+            <h2>Bootstrap Contact Form</h2>
+            <p class="section-note">
+                This form uses Bootstrap form components, helper text and
+                a responsive grid layout.
+            </p>
+
+            <form action="#" method="get">
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label for="t2Name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="t2Name" name="name"
+                            placeholder="Enter your full name">
+                        <div class="form-text">
+                            Please enter your first and last name.
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label for="t2Email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="t2Email" name="email"
+                            placeholder="name@example.com">
+                    </div>
+
+                    <div class="col-12">
+                        <label for="t2Message" class="form-label">Message</label>
+                        <textarea class="form-control" id="t2Message" name="message" rows="4"
+                            placeholder="Write your message here"></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">
+                            Send Message
+                        </button>
+                        <button type="reset" class="btn btn-outline-secondary">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section id="task3" class="task-card">
+            <div class="task-number">Part 2 - Task 3</div>
+            <h2>Bootstrap Validation Styles</h2>
+            <p class="section-note">
+                Submit the form to see Bootstrap invalid and valid states.
+            </p>
+
+            <form id="task3Form" novalidate>
+                <div class="mb-3">
+                    <label for="t3Name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="t3Name" required minlength="2"
+                        placeholder="Enter your name">
+                    <div class="invalid-feedback">
+                        Name must contain at least 2 characters.
+                    </div>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="t3Email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="t3Email" required placeholder="name@example.com">
+                    <div class="invalid-feedback">
+                        Please enter a valid email address.
+                    </div>
+                    <div class="valid-feedback">Email looks good!</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="t3Message" class="form-label">Message</label>
+                    <textarea class="form-control" id="t3Message" rows="4" required minlength="10"
+                        placeholder="At least 10 characters"></textarea>
+                    <div class="invalid-feedback">
+                        Message must contain at least 10 characters.
+                    </div>
+                    <div class="valid-feedback">Message looks good!</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Validate Form
+                </button>
+                <button type="reset" class="btn btn-outline-secondary">
+                    Reset
+                </button>
+
+                <div id="t3Result" class="mt-3" role="status"></div>
+            </form>
+        </section>
+
+
+        <section id="task4" class="task-card">
+            <div class="task-number">Part 3 - Task 4</div>
+            <h2>Registration Form</h2>
+            <p class="section-note">
+                A responsive registration form with HTML5 constraints,
+                Bootstrap feedback and password confirmation.
+            </p>
+
+            <form id="registrationForm" novalidate>
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-6">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" required minlength="2" maxlength="50"
+                            placeholder="First name">
+                        <div class="invalid-feedback">
+                            Enter at least 2 characters.
+                        </div>
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" required minlength="2" maxlength="50"
+                            placeholder="Last name">
+                        <div class="invalid-feedback">
+                            Enter at least 2 characters.
+                        </div>
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="regEmail" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="regEmail" required placeholder="name@example.com">
+                        <div class="invalid-feedback">
+                            Enter a valid email address.
+                        </div>
+                        <div class="valid-feedback">Email looks good!</div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label for="regPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="regPassword" required minlength="8"
+                            maxlength="64" placeholder="Minimum 8 characters">
+                        <div class="invalid-feedback">
+                            Password must contain at least 8 characters.
+                        </div>
+                        <div class="valid-feedback">Password length is valid.</div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <label for="confirmPassword" class="form-label">
+                            Confirm Password
+                        </label>
+                        <input type="password" class="form-control" id="confirmPassword" required
+                            placeholder="Repeat your password">
+                        <div class="invalid-feedback">
+                            Passwords must match.
+                        </div>
+                        <div class="valid-feedback">Passwords match!</div>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label d-block">Gender</label>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="regMale" value="Male"
+                                required>
+                            <label class="form-check-label" for="regMale">Male</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="regFemale" value="Female"
+                                required>
+                            <label class="form-check-label" for="regFemale">Female</label>
+                        </div>
+
+                        <div id="genderError" class="text-danger small mt-1" hidden>
+                            Please select a gender.
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label d-block">Hobbies</label>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="hobbyProgramming" name="hobbies"
+                                value="Programming">
+                            <label class="form-check-label" for="hobbyProgramming">
+                                Programming
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="hobbySports" name="hobbies"
+                                value="Sports">
+                            <label class="form-check-label" for="hobbySports">
+                                Sports
+                            </label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="hobbyReading" name="hobbies"
+                                value="Reading">
+                            <label class="form-check-label" for="hobbyReading">
+                                Reading
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="country" class="form-label">Country</label>
+                        <select class="form-select" id="country" required>
+                            <option value="" selected disabled>Select your country</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Kazakhstan">Kazakhstan</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="India">India</option>
+                            <option value="United States">United States</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select your country.
+                        </div>
+                        <div class="valid-feedback">Country selected.</div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="terms" required>
+                            <label class="form-check-label" for="terms">
+                                I agree to the terms and conditions.
+                            </label>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 d-grid d-md-flex gap-2">
+                        <button type="submit" class="btn btn-primary flex-fill">
+                            Register
+                        </button>
+                        <button type="reset" class="btn btn-outline-secondary flex-fill">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <div id="registrationResult" class="mt-3" role="status"></div>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="mb-1">Web Technologies - Assignment #4</p>
+        <p class="mb-0">HTML5 Forms, Bootstrap and Validation</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const task3Form = document.getElementById("task3Form");
+
+        task3Form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let valid = true;
+
+            const fields = [
+                document.getElementById("t3Name"),
+                document.getElementById("t3Email"),
+                document.getElementById("t3Message")
+            ];
+
+            fields.forEach(function (field) {
+                if (field.checkValidity()) {
+                    field.classList.add("is-valid");
+                    field.classList.remove("is-invalid");
+                } else {
+                    field.classList.add("is-invalid");
+                    field.classList.remove("is-valid");
+                    valid = false;
+                }
+            });
+
+            document.getElementById("t3Result").innerHTML = valid
+                ? '<div class="alert alert-success">Form validated successfully!</div>'
+                : '<div class="alert alert-danger">Please correct the errors above.</div>';
+        });
+
+        task3Form.addEventListener("reset", function () {
+            setTimeout(function () {
+                task3Form.querySelectorAll(".is-valid, .is-invalid")
+                    .forEach(function (field) {
+                        field.classList.remove("is-valid", "is-invalid");
+                    });
+
+                document.getElementById("t3Result").innerHTML = "";
+            }, 0);
+        });
+
+        // Task 4: Registration validation
+        const registrationForm = document.getElementById("registrationForm");
+        const regPassword = document.getElementById("regPassword");
+        const confirmPassword = document.getElementById("confirmPassword");
+
+        function validatePasswordMatch() {
+            if (confirmPassword.value === "") {
+                confirmPassword.setCustomValidity("Please confirm your password.");
+            } else if (confirmPassword.value !== regPassword.value) {
+                confirmPassword.setCustomValidity("Passwords do not match.");
+            } else {
+                confirmPassword.setCustomValidity("");
+            }
+        }
+
+        regPassword.addEventListener("input", function () {
+            validatePasswordMatch();
+            confirmPassword.classList.remove("is-valid", "is-invalid");
+        });
+
+        confirmPassword.addEventListener("input", function () {
+            validatePasswordMatch();
+            confirmPassword.classList.remove("is-valid", "is-invalid");
+        });
+
+        registrationForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            validatePasswordMatch();
+
+            let valid = true;
+
+            const fields = registrationForm.querySelectorAll(
+                "input:not([type='radio']):not([type='checkbox']), select"
+            );
+
+            fields.forEach(function (field) {
+                if (field.checkValidity()) {
+                    field.classList.add("is-valid");
+                    field.classList.remove("is-invalid");
+                } else {
+                    field.classList.add("is-invalid");
+                    field.classList.remove("is-valid");
+                    valid = false;
+                }
+            });
+
+            const genderSelected = registrationForm.querySelector(
+                "input[name='gender']:checked"
+            );
+
+            const genderError = document.getElementById("genderError");
+            genderError.hidden = Boolean(genderSelected);
+
+            if (!genderSelected) {
+                valid = false;
+            }
+
+            if (!registrationForm.checkValidity()) {
+                valid = false;
+            }
+
+            document.getElementById("registrationResult").innerHTML = valid
+                ? '<div class="alert alert-success">Registration form validated successfully!</div>'
+                : '<div class="alert alert-danger">Please correct the errors and try again.</div>';
+        });
+
+        registrationForm.addEventListener("reset", function () {
+            setTimeout(function () {
+                registrationForm.querySelectorAll(".is-valid, .is-invalid")
+                    .forEach(function (field) {
+                        field.classList.remove("is-valid", "is-invalid");
+                    });
+
+                document.getElementById("genderError").hidden = true;
+                document.getElementById("registrationResult").innerHTML = "";
+                confirmPassword.setCustomValidity("");
+            }, 0);
+        });
+    </script>
+
+</body>
+
+</html>
